@@ -4,3 +4,6 @@
 [submodule "2-PicoSetup/BlinkLEDExt/lib/FreeRTOS-Kernel"]
 	path = 2-PicoSetup/BlinkLEDExt/lib/FreeRTOS-Kernel
 	url = https://github.com/FreeRTOS/FreeRTOS-Kernel
+[submodule "lib/tiny-json"]
+	path = lib/tiny-json
+	url = https://github.com/rafagafe/tiny-json
