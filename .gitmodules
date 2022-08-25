@@ -7,3 +7,6 @@
 [submodule "lib/tiny-json"]
 	path = lib/tiny-json
 	url = https://github.com/rafagafe/tiny-json
+[submodule "8-Multicore/FreeRTOSSMP/lib/FreeRTOS-Kernel"]
+	path = 8-Multicore/FreeRTOSSMP/lib/FreeRTOS-Kernel
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel
