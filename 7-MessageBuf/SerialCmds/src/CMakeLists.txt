@@ -12,6 +12,7 @@ target_link_libraries(${NAME}
 	 pico_stdlib
      FreeRTOS-Kernel-Heap4
      tiny_json
+	 hardware_adc
 	)
 	
 target_include_directories(${NAME} PRIVATE

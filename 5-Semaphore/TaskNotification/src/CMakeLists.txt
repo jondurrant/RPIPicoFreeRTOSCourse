@@ -2,7 +2,7 @@ add_executable(${NAME}
         main.cpp
         BlinkAgent.cpp
         Agent.cpp
-        RainbowAgent.cpp
+        BlinkWorker.cpp
         )
 
 # Pull in our pico_stdlib which pulls in commonly used features

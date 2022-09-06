@@ -12,6 +12,7 @@
 #include "task.h"
 #include <stdio.h>
 #include <math.h>
+#include "hardware/adc.h"
 
 #include "BlinkAgent.h"
 #include "CounterAgent.h"
@@ -80,6 +81,21 @@ void runTimeStats(   ){
 		   );
 }
 
+/***
+ * Salt Random number generator using current temperature
+ * Otherwise both Pico will go through same random sequence
+ */
+void saltRand(){
+	adc_init();
+	adc_set_temp_sensor_enabled(true);
+	adc_select_input(4);
+
+	int seed = 0;
+
+	seed = adc_read();
+	srand(seed);
+}
+
 
 /***
  * Main task to blink external LED
@@ -93,6 +109,7 @@ void mainTask(void *params){
 	IOAgent ioAgent(&decoder, LED5_PAD);
 
 	printf("Main task started\n");
+	saltRand();
 
 	blink.start("Blink", TASK_PRIORITY);
 	counter.start("Counter", TASK_PRIORITY);

@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 #include "BlinkAgent.h"
-#include "RainbowAgent.h"
+#include "BlinkWorker.h"
 
 
 //Standard Task priority
@@ -21,6 +21,9 @@
 
 //LED PAD to use
 #define LED_PAD				0
+#define LED1_PAD			2
+#define LED2_PAD			3
+
 
 
 void runTimeStats(   ){
@@ -79,18 +82,18 @@ void runTimeStats(   ){
  */
 void mainTask(void *params){
 	BlinkAgent blink(LED_PAD);
+	BlinkWorker worker1(LED1_PAD);
+	BlinkWorker worker2(LED2_PAD);
 
-	RainbowAgent rainbowA(2,4,5);
-	RainbowAgent rainbowB(6,8,9);
-	rainbowA.setPeer(&rainbowB);
-	rainbowB.setPeer(&rainbowA);
+	worker1.setPeer(&worker2);
+	worker2.setPeer(&worker1);
 
-	printf("Main task started\n");
-
-	blink.start("Blink", TASK_PRIORITY);
-	rainbowA.start("Rainbow A", TASK_PRIORITY);
-	rainbowB.start("Rainbow B", TASK_PRIORITY);
-
+	blink.start("Blink",
+	  TASK_PRIORITY);
+	worker1.start("Worker 1",
+	  TASK_PRIORITY);
+	worker2.start("Worker 2",
+	  TASK_PRIORITY);
 
 
 
