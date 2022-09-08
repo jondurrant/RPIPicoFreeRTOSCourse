@@ -32,7 +32,9 @@ void BlinkPairAgent::run(){
 	while (true) { // Loop forever
 		gpio_put(xLedPad, 1);
 		if (pSharedLed != NULL){
-			pSharedLed->blink(DELAY);
+			while (pSharedLed->blink(DELAY) == false){
+				//Keep checking
+			}
 		}
 		gpio_put(xLedPad, 0);
 		vTaskDelay(DELAY);
