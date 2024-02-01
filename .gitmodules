@@ -10,3 +10,9 @@
 [submodule "8-Multicore/FreeRTOSSMP/lib/FreeRTOS-Kernel"]
 	path = 8-Multicore/FreeRTOSSMP/lib/FreeRTOS-Kernel
 	url = https://github.com/FreeRTOS/FreeRTOS-Kernel
+[submodule "V11-Extra/lib/pi_spigot"]
+	path = V11-Extra/lib/pi_spigot
+	url = https://github.com/imahjoub/pi_spigot
+[submodule "V11-Extra/lib/FreeRTOS-Kernel"]
+	path = V11-Extra/lib/FreeRTOS-Kernel
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel
